@@ -102,3 +102,35 @@ prices/prices-data
      (filter #(> (Double/parseDouble (:PRICE %)) 100.0))
      (take 5))
 ```
+
+### Settings Data
+
+The `ib-sma-portfolios.settings` namespace provides access to settings data from the JSON files:
+- `account_settings.json`
+- `allocator_settings.json` 
+- `portfolio_settings.json`
+
+The data is available as:
+- `account-settings` - Account configuration data
+- `allocator-settings` - Allocator configuration data
+- `portfolio-settings` - Portfolio configuration data
+
+Example usage:
+```clojure
+(require '[ib-sma-portfolios.settings :as settings])
+
+;; Get all account settings
+settings/account-settings
+
+;; Get specific account info
+(get settings/account-settings "U1667447")
+
+;; Get allocator settings
+settings/allocator-settings
+
+;; Get portfolio settings
+settings/portfolio-settings
+
+;; Get specific portfolio info
+(get settings/portfolio-settings "Omega")
+```
