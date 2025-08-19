@@ -26,11 +26,11 @@
                   (zipmap (map keyword headers) values)))  ; Convert headers to keywords
            (into [])))))
 
-(defn load
+(defn load-data
   "Load shortinfo data from the specified directory with optional filename.
    Defaults to shorting.tsv if no filename is provided."
   ([data-dir]
-   (load data-dir "shorting.tsv"))
+   (load-data data-dir "shorting.tsv"))
   ([data-dir filename]
    (let [file-path (str data-dir "/" filename)]
      (parse-shortinfo-data file-path))))

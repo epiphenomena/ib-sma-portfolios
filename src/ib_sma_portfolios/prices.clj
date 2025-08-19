@@ -20,11 +20,11 @@
                   (zipmap (map keyword headers) values)))
            (into [])))))
 
-(defn load
+(defn load-data
   "Load prices data from the specified directory with optional filename.
    Defaults to prices.tsv if no filename is provided."
   ([data-dir]
-   (load data-dir "prices.tsv"))
+   (load-data data-dir "prices.tsv"))
   ([data-dir filename]
    (let [file-path (str data-dir "/" filename)]
      (parse-prices-data file-path))))

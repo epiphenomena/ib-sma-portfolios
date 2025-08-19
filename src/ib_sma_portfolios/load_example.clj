@@ -10,15 +10,15 @@
   (println "Loading data from:" data-dir)
   
   ;; Load prices data
-  (let [prices-data (prices/load data-dir)]
+  (let [prices-data (prices/load-data data-dir)]
     (println "Loaded" (count prices-data) "prices records"))
   
   ;; Load ranks data
-  (let [ranks-data (ranks/load data-dir)]
+  (let [ranks-data (ranks/load-data data-dir)]
     (println "Loaded ranks data with" (count ranks-data) "files"))
   
   ;; Load shortinfo data
-  (let [shortinfo-data (shortinfo/load data-dir)]
+  (let [shortinfo-data (shortinfo/load-data data-dir)]
     (println "Loaded" (count shortinfo-data) "shortinfo records"))
   
   ;; Load settings data

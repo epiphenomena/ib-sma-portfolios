@@ -20,7 +20,7 @@
                   (zipmap (map keyword headers) values)))
            (into [])))))
 
-(defn load
+(defn load-data
   "Load all plain_ranks*.tsv files from the specified directory and return a map 
    of filename (without extension) to parsed data."
   [data-dir]
