@@ -1,22 +1,7 @@
 (ns ib-sma-portfolios.settings
   (:require [clojure.java.io :as io]
-            [clojure.data.json :as json])
-  (:import [java.io File]))
-
-
-(defn get-file-info
-  "Get file modification time and size information"
-  [file-path]
-  (let [file (File. file-path)]
-    {:last-modified (.lastModified file)
-     :size (.length file)
-     :hours-since-modified (-> (.lastModified file)
-                               (- (System/currentTimeMillis))
-                               (/ 1000) ; seconds
-                               (/ 3600) ; hours
-                               (-) ; make positive
-                               Math/abs
-                               int)}))
+            [clojure.data.json :as json]
+            [ib-sma-portfolios.utils :as utils]))
 
 (defn read-json-file
   "Reads a JSON file and returns the parsed data."

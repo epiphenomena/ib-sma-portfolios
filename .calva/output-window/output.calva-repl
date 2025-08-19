@@ -1,0 +1,128 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+;
+; See also the Calva Inspector: https://calva.io/inspector/
+
+PLEASE NOTE
+We will update the default location of this file.
+The new default location will be
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false:
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; Connecting using "deps.edn" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+;
+
+; Starting Jack-in: (cd /home/unveiled/gh/ib-sma-portfolios; clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"1.3.1"},cider/cider-nrepl {:mvn/version,"0.55.4"}}}' -M:run:test -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]")
+; Using host:port localhost:36167 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉user꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/shortinfo_test.clj:0:0).
+; Can't take value of a macro: #'clojure.core/let
+clj꞉ib-sma-portfolios.shortinfo-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/shortinfo_test.clj:0:0).
+; Can't take value of a macro: #'clojure.core/let
+clj꞉ib-sma-portfolios.shortinfo-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/shortinfo_test.clj:0:0).
+; Unable to resolve symbol: def in this context
+clj꞉ib-sma-portfolios.shortinfo-test꞉> 
+"/home/unveiled/work/P123/script/ib_data"
+clj꞉ib-sma-portfolios.shortinfo-test꞉> 
+"/home/unveiled/work/P123/script/ib_data"
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/ranks_test.clj:0:0).
+; Unable to resolve symbol: data in this context
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+#function[ib-sma-portfolios.ranks/load-data]
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+#'ib-sma-portfolios.ranks-test/data
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/ranks_test.clj:0:0).
+; Unable to resolve symbol: def in this context
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+#'ib-sma-portfolios.ranks-test/data
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; Execution error (ArityException) at ib-sma-portfolios.ranks-test/eval10126 (REPL:17).
+; Wrong number of args (0) passed to: clojure.lang.PersistentArrayMap
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+{}
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; {}
+nil
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; {}
+nil
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/prices_test.clj:22:1).
+; No such namespace: ranks
+clj꞉ib-sma-portfolios.prices-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/prices_test.clj:22:1).
+; No such var: prices/load-data
+clj꞉ib-sma-portfolios.prices-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/prices_test.clj:22:1).
+; No such var: prices/load-data
+clj꞉ib-sma-portfolios.prices-test꞉> 
+nil
+clj꞉ib-sma-portfolios.prices-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/prices_test.clj:22:1).
+; No such var: prices/load-data
+clj꞉ib-sma-portfolios.prices-test꞉> 
+; Syntax error compiling at (test/ib_sma_portfolios/prices_test.clj:22:1).
+; No such var: prices/load-data
+clj꞉ib-sma-portfolios.prices-test꞉> 
+{}
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; Syntax error compiling at (src/ib_sma_portfolios/ranks.clj:33:17).
+; Unable to resolve symbol: acc in this context
+clj꞉ib-sma-portfolios.ranks꞉> 
+; Syntax error compiling at (src/ib_sma_portfolios/ranks.clj:27:5).
+; Unable to resolve symbol: ranks-files in this context
+clj꞉ib-sma-portfolios.ranks꞉> 
+; Syntax error compiling at (src/ib_sma_portfolios/ranks.clj:23:26).
+; Unable to resolve symbol: data-dir in this context
+clj꞉ib-sma-portfolios.ranks꞉> 
+#'ib-sma-portfolios.ranks/data-dir
+clj꞉ib-sma-portfolios.ranks꞉> 
+()
+clj꞉ib-sma-portfolios.ranks꞉> 
+(#object[java.io.File 0x7a52d8d3 "/home/unveiled/work/P123/script/ib_data/plain_ranks_ice_shorts.tsv"]
+ #object[java.io.File 0x45b93d38 "/home/unveiled/work/P123/script/ib_data/plain_ranks_shorts.tsv"]
+ #object[java.io.File 0x1788c41b "/home/unveiled/work/P123/script/ib_data/plain_ranks_ice_longs.tsv"]
+ #object[java.io.File 0x3cdf11e5 "/home/unveiled/work/P123/script/ib_data/plain_ranks_longs.tsv"])
+clj꞉ib-sma-portfolios.ranks꞉> 
+#'ib-sma-portfolios.ranks-test/data
+clj꞉ib-sma-portfolios.ranks-test꞉> 
+; {}
+nil
+clj꞉ib-sma-portfolios.ranks-test꞉> 

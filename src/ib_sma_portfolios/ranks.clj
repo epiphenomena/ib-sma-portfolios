@@ -1,22 +1,7 @@
 (ns ib-sma-portfolios.ranks
   (:require [clojure.java.io :as io]
-            [clojure.string :as str])
-  (:import [java.io File]
-           ))
-
-(defn get-file-info
-  "Get file modification time and size information"
-  [file-path]
-  (let [file (File. file-path)]
-    {:last-modified (.lastModified file)
-     :size (.length file)
-     :hours-since-modified (-> (.lastModified file)
-                               (- (System/currentTimeMillis))
-                               (/ 1000) ; seconds
-                               (/ 3600) ; hours
-                               (-) ; make positive
-                               Math/abs
-                               int)}))
+            [clojure.string :as str]
+            [ib-sma-portfolios.utils :as utils]))
 
 (defn parse-ranks-data
   "Reads a ranks TSV file and returns an array of maps with the data."
@@ -26,7 +11,7 @@
           headers ["SYMBOL" "RANK" "CRITERIA"]]
       (->> lines
            (filter #(not (str/blank? %)))
-           (map #(str/split % #"	"))
+           (map #(str/split % #"\t"))
            (map (fn [values]
                   (zipmap (map keyword headers) values)))
            (into [])))))
@@ -44,7 +29,7 @@
                     file-key (keyword (subs filename 0 (.lastIndexOf filename ".")))
                     file-path (.getAbsolutePath file)
                     data (parse-ranks-data file-path)
-                    file-info (get-file-info file-path)]
+                    file-info (utils/get-file-info file-path)]
                 (assoc acc file-key
                        {:data data
                         :hours-since-modified (:hours-since-modified file-info)

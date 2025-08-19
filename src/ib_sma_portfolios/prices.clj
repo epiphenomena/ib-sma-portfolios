@@ -1,23 +1,7 @@
 (ns ib-sma-portfolios.prices
   (:require [clojure.java.io :as io]
-            [clojure.string :as str])
-  (:import [java.io File]
-          ))
-
-
-(defn get-file-info
-  "Get file modification time and size information"
-  [file-path]
-  (let [file (File. file-path)]
-    {:last-modified (.lastModified file)
-     :size (.length file)
-     :hours-since-modified (-> (.lastModified file)
-                               (- (System/currentTimeMillis))
-                               (/ 1000) ; seconds
-                               (/ 3600) ; hours
-                               (-) ; make positive
-                               Math/abs
-                               int)}))
+            [clojure.string :as str]
+            [ib-sma-portfolios.utils :as utils]))
 
 (defn process-prices-data
   "Process prices data to remove ':USA' suffix from tickers"
@@ -51,7 +35,7 @@
    (let [file-path (str data-dir "/" filename)
          raw-data (parse-prices-data file-path)
          processed-data (process-prices-data raw-data)
-         file-info (get-file-info file-path)]
+         file-info (utils/get-file-info file-path)]
      {:data processed-data
       :hours-since-modified (:hours-since-modified file-info)
       :size (:size file-info)})))
