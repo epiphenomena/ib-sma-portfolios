@@ -8,10 +8,16 @@ A Clojure project for managing SMA (Separately Managed Accounts) portfolios with
 
 ## Usage
 
-To run the project:
+To run the project with the default data directory:
 
 ```bash
 clj -M:run
+```
+
+To run the project with a custom data directory:
+
+```bash
+clj -M:run /path/to/data/directory
 ```
 
 To run tests:
@@ -35,7 +41,7 @@ clj -M:test
 
 ## Data Files
 
-This project works with data files from `/home/unveiled/work/P123/script/ib_data/`:
+This project works with data files from a specified directory (default: `/home/unveiled/work/P123/script/ib_data/`):
 
 - `account_settings.json` - Account configuration
 - `allocator_settings.json` - Allocator settings

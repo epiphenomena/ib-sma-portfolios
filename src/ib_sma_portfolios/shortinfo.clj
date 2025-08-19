@@ -2,6 +2,11 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
+(defn get-data-dir []
+  "Get the data directory from system property or default path"
+  (or (System/getProperty "ib.sma.portfolios.data.dir") 
+      "/home/unveiled/work/P123/script/ib_data"))
+
 (defn parse-shortinfo-data
   "Reads the shorting.tsv file and returns an array of maps with the data."
   [file-path]
@@ -21,9 +26,13 @@
                   (zipmap (map keyword headers) values)))  ; Convert headers to keywords
            (into [])))))
 
+(def shorting-file-path
+  "Path to the shorting.tsv file"
+  (str (get-data-dir) "/shorting.tsv"))
+
 (def shortinfo-data
   "The shortinfo data loaded from the TSV file as an array of maps with keyword keys."
-  (parse-shortinfo-data "/home/unveiled/work/P123/script/ib_data/shorting.tsv"))
+  (parse-shortinfo-data shorting-file-path))
 
 (comment
   ;; Example usage:

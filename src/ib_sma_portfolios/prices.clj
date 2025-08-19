@@ -2,6 +2,11 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
+(defn get-data-dir []
+  "Get the data directory from system property or default path"
+  (or (System/getProperty "ib.sma.portfolios.data.dir") 
+      "/home/unveiled/work/P123/script/ib_data"))
+
 (defn parse-prices-data
   "Reads the prices.tsv file and returns an array of maps with the data."
   [file-path]
@@ -15,9 +20,13 @@
                   (zipmap (map keyword headers) values)))
            (into [])))))
 
+(def prices-file-path
+  "Path to the prices.tsv file"
+  (str (get-data-dir) "/prices.tsv"))
+
 (def prices-data
   "The prices data loaded from the TSV file as an array of maps with keyword keys."
-  (parse-prices-data "/home/unveiled/work/P123/script/ib_data/prices.tsv"))
+  (parse-prices-data prices-file-path))
 
 (comment
   ;; Example usage:
