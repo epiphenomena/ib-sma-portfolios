@@ -1,11 +1,6 @@
-(ns ib_sma_portfolios.prices
+(ns ib-sma-portfolios.prices
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
-
-(defn get-data-dir []
-  "Get the data directory from system property or default path"
-  (or (System/getProperty "ib.sma.portfolios.data.dir") 
-      "/home/unveiled/work/P123/script/ib_data"))
 
 (def prices-filename-default "prices.tsv")
 
@@ -30,11 +25,3 @@
   ([data-dir filename]
    (let [file-path (str data-dir "/" filename)]
      (parse-prices-data file-path))))
-
-(def prices-file-path
-  "Path to the prices.tsv file"
-  (str (get-data-dir) "/" prices-filename-default))
-
-(def prices-data
-  "The prices data loaded from the TSV file as an array of maps with keyword keys."
-  (parse-prices-data prices-file-path))

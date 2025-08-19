@@ -1,6 +1,6 @@
 (ns ib_sma_portfolios.shortinfo_test
   (:require [clojure.test :refer :all]
-            [ib_sma_portfolios.shortinfo :as shortinfo]))
+            [ib-sma-portfolios.shortinfo :as shortinfo]))
 
 (deftest test-shortinfo-data-loaded
   (is (pos? (count shortinfo/shortinfo-data)))
