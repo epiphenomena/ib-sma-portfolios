@@ -140,3 +140,37 @@ settings/portfolio-settings
 ;; Get specific portfolio info
 (get settings/portfolio-settings "Omega")
 ```
+
+### Ranks Data
+
+The `ib-sma-portfolios.ranks` namespace provides access to ranking data from the `plain_ranks*.tsv` files.
+
+The data is available as `ranks-data`, which is a map of filename (as keyword) to parsed data. The map keys are:
+- `:plain_ranks_longs` - Long positions rankings
+- `:plain_ranks_shorts` - Short positions rankings
+- `:plain_ranks_ice_longs` - ICE long positions rankings
+- `:plain_ranks_ice_shorts` - ICE short positions rankings
+
+Each value is a vector of maps with the following keys:
+- `:SYMBOL` - Symbol
+- `:RANK` - Rank (as string)
+- `:CRITERIA` - Criteria
+
+Example usage:
+```clojure
+(require '[ib-sma-portfolios.ranks :as ranks])
+
+;; Get all ranks data
+ranks/ranks-data
+
+;; Get specific ranks data
+(:plain_ranks_longs ranks/ranks-data)
+
+;; Find records with specific symbol in longs
+(filter #(= "AAPL" (:SYMBOL %)) (:plain_ranks_longs ranks/ranks-data))
+
+;; Get stocks with high rank in longs
+(->> (:plain_ranks_longs ranks/ranks-data)
+     (filter #(> (Double/parseDouble (:RANK %)) 0.0))
+     (take 5))
+```
