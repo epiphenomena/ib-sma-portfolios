@@ -76,3 +76,29 @@ shortinfo/shortinfo-data
      (filter #(> (Long/parseLong (:AVAILABLE %)) 1000000))
      (take 5))
 ```
+
+### Prices Data
+
+The `ib-sma-portfolios.prices` namespace provides access to price data from the `prices.tsv` file.
+
+The data is available as `prices-data`, which is a vector of maps with the following keys:
+- `:SYMBOL` - Symbol with country code
+- `:PRICE` - Price (as string)
+- `:DATE` - Date
+- `:SECTOR` - Sector
+
+Example usage:
+```clojure
+(require '[ib-sma-portfolios.prices :as prices])
+
+;; Get all prices records
+prices/prices-data
+
+;; Find a specific symbol
+(filter #(= "AAPL:USA" (:SYMBOL %)) prices/prices-data)
+
+;; Get stocks with high prices
+(->> prices/prices-data
+     (filter #(> (Double/parseDouble (:PRICE %)) 100.0))
+     (take 5))
+```
