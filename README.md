@@ -17,13 +17,13 @@ clj -M:run
 To run the project with a custom data directory:
 
 ```bash
-clj -M:run /path/to/data/directory
+clj -X:run /path/to/data/directory
 ```
 
 To run tests:
 
 ```bash
-clj -M:test
+clj -X:test
 ```
 
 ## Dependencies
