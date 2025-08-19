@@ -1,4 +1,4 @@
-# IB SMA Portfolios
+# IB SMA Portfolios -- WORK IN PROGRESS
 
 A Clojure project for managing SMA (Separately Managed Accounts) portfolios with Interactive Brokers.
 
@@ -72,13 +72,13 @@ Example usage:
 (require '[ib-sma-portfolios.shortinfo :as shortinfo])
 
 ;; Get all shortinfo records
-shortinfo/shortinfo-data
+(def shortdata = shortinfo/load-data)
 
 ;; Find a specific symbol
-(filter #(= "AAPL" (:SYM %)) shortinfo/shortinfo-data)
+(filter #(= "AAPL" (:SYM %)) shortdata)
 
 ;; Get symbols with high availability
-(->> shortinfo/shortinfo-data
+(->> shortdata
      (filter #(> (Long/parseLong (:AVAILABLE %)) 1000000))
      (take 5))
 ```
@@ -113,7 +113,7 @@ prices/prices-data
 
 The `ib-sma-portfolios.settings` namespace provides access to settings data from the JSON files:
 - `account_settings.json`
-- `allocator_settings.json` 
+- `allocator_settings.json`
 - `portfolio_settings.json`
 
 The data is available as:

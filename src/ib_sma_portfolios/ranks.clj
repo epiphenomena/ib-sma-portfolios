@@ -1,6 +1,11 @@
-(ns ib-sma-portfolios.ranks
+(ns ib_sma_portfolios.ranks
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
+
+(defn get-data-dir []
+  "Get the data directory from system property or default path"
+  (or (System/getProperty "ib.sma.portfolios.data.dir") 
+      "/home/unveiled/work/P123/script/ib_data"))
 
 (defn parse-ranks-data
   "Reads a ranks TSV file and returns an array of maps with the data."
@@ -30,3 +35,22 @@
                 (assoc acc file-key (parse-ranks-data file-path))))
             {}
             ranks-files)))
+
+(defn load-all-ranks-files []
+  "Load all plain_ranks*.tsv files and return a map of filename (without extension) to parsed data."
+  (let [data-dir (get-data-dir)
+        ranks-files (->> (io/file data-dir)
+                         (.listFiles)
+                         (filter #(and (.isFile %) 
+                                     (re-find #"plain_ranks.*\.tsv$" (.getName %)))))]
+    (reduce (fn [acc file]
+              (let [filename (.getName file)
+                    file-key (keyword (subs filename 0 (.lastIndexOf filename ".")))
+                    file-path (.getAbsolutePath file)]
+                (assoc acc file-key (parse-ranks-data file-path))))
+            {}
+            ranks-files)))
+
+(def ranks-data
+  "A map of filename (as keyword) to parsed ranks data."
+  (load-all-ranks-files))
