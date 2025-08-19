@@ -1,0 +1,21 @@
+# Clojure
+/.cpcache/
+/.clj-kondo/
+/target/
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lsp/
+/.shadow-cljs/
+
+# IDE
+/.idea/
+/.vscode/
+*.iml
+*.iws
+out/
+.classes/
+
+# OS
+.DS_Store
