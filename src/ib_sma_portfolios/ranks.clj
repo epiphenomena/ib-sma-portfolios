@@ -15,10 +15,26 @@
           headers ["SYMBOL" "RANK" "CRITERIA"]]
       (->> lines
            (filter #(not (str/blank? %)))
-           (map #(str/split % #"\t"))
+           (map #(str/split % #"	"))
            (map (fn [values]
                   (zipmap (map keyword headers) values)))
            (into [])))))
+
+(defn load
+  "Load all plain_ranks*.tsv files from the specified directory and return a map 
+   of filename (without extension) to parsed data."
+  [data-dir]
+  (let [ranks-files (->> (io/file data-dir)
+                         (.listFiles)
+                         (filter #(and (.isFile %) 
+                                     (re-find #"plain_ranks.*\.tsv$" (.getName %)))))]
+    (reduce (fn [acc file]
+              (let [filename (.getName file)
+                    file-key (keyword (subs filename 0 (.lastIndexOf filename ".")))
+                    file-path (.getAbsolutePath file)]
+                (assoc acc file-key (parse-ranks-data file-path))))
+            {}
+            ranks-files)))
 
 (defn load-all-ranks-files []
   "Load all plain_ranks*.tsv files and return a map of filename (without extension) to parsed data."

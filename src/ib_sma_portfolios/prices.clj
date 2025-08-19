@@ -15,10 +15,19 @@
           headers ["SYMBOL" "PRICE" "DATE" "SECTOR"]]
       (->> lines
            (filter #(not (str/blank? %)))
-           (map #(str/split % #"\t"))
+           (map #(str/split % #"	"))
            (map (fn [values]
                   (zipmap (map keyword headers) values)))
            (into [])))))
+
+(defn load
+  "Load prices data from the specified directory with optional filename.
+   Defaults to prices.tsv if no filename is provided."
+  ([data-dir]
+   (load data-dir "prices.tsv"))
+  ([data-dir filename]
+   (let [file-path (str data-dir "/" filename)]
+     (parse-prices-data file-path))))
 
 (def prices-file-path
   "Path to the prices.tsv file"
