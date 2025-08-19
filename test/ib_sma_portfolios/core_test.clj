@@ -1,4 +1,4 @@
-(ns ib_sma_portfolios.core_test
+(ns ib-sma-portfolios.core-test
   (:require [clojure.test :refer :all]
             [ib-sma-portfolios.core :as core]))
 

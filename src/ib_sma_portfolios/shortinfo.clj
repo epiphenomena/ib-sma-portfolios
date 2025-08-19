@@ -1,7 +1,21 @@
 (ns ib-sma-portfolios.shortinfo
   (:require [clojure.java.io :as io]
-            [clojure.string :as str]))
+            [clojure.string :as str])
+  (:import [java.io File]))
 
+(defn get-file-info
+  "Get file modification time and size information"
+  [file-path]
+  (let [file (File. file-path)]
+    {:last-modified (.lastModified file)
+     :size (.length file)
+     :hours-since-modified (-> (.lastModified file)
+                               (- (System/currentTimeMillis))
+                               (/ 1000) ; seconds
+                               (/ 3600) ; hours
+                               (-) ; make positive
+                               Math/abs
+                               int)}))
 
 (defn parse-shortinfo-data
   "Reads the shorting.tsv file and returns an array of maps with the data."
@@ -24,9 +38,14 @@
 
 (defn load-data
   "Load shortinfo data from the specified directory with optional filename.
-   Defaults to shorting.tsv if no filename is provided."
+   Defaults to shorting.tsv if no filename is provided.
+   Returns a map with :data, :hours-since-modified, and :size."
   ([data-dir]
    (load-data data-dir "shorting.tsv"))
   ([data-dir filename]
-   (let [file-path (str data-dir "/" filename)]
-     (parse-shortinfo-data file-path))))
+   (let [file-path (str data-dir "/" filename)
+         data (parse-shortinfo-data file-path)
+         file-info (get-file-info file-path)]
+     {:data data
+      :hours-since-modified (:hours-since-modified file-info)
+      :size (:size file-info)})))
