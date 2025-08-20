@@ -7,5 +7,5 @@
                   :extra-deps {io.github.cognitect-labs/test-runner
                                {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
                   :exec-fn cognitect.test-runner.api/test}
-           :run {:exec-fn ib-sma-portfolios.core/-main
-                 :exec-args ["/home/unveiled/work/P123/script/ib_data"]}}}
+           :run {:exec-fn core/-main
+                 :exec-args {:dir "/home/unveiled/work/P123/script/ib_data"}}}}

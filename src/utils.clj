@@ -1,5 +1,4 @@
-(ns ib-sma-portfolios.utils
-  (:require [clojure.math :as math])
+(ns utils
   (:import [java.io File]))
 
 (defn get-file-info

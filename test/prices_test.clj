@@ -1,6 +1,6 @@
-(ns ib-sma-portfolios.prices-test
+(ns prices-test
   (:require [clojure.test :refer :all]
-            [ib-sma-portfolios.prices :as prices]))
+            [prices]))
 
 (deftest test-load-data-function
   (let [data-dir "/home/unveiled/work/P123/script/ib_data"

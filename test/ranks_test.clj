@@ -1,6 +1,6 @@
-(ns ib-sma-portfolios.ranks-test
+(ns ranks-test
   (:require [clojure.test :refer :all]
-            [ib-sma-portfolios.ranks :as ranks]))
+            [ranks]))
 
 
 

@@ -1,7 +1,7 @@
-(ns ib-sma-portfolios.prices
+(ns prices
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
-            [ib-sma-portfolios.utils :as utils]))
+            [utils]))
 
 (defn process-prices-data
   "Process prices data to remove ':USA' suffix from tickers"

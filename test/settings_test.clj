@@ -1,6 +1,6 @@
-(ns ib-sma-portfolios.settings-test
+(ns settings-test
   (:require [clojure.test :refer :all]
-            [ib-sma-portfolios.settings :as settings]))
+            [settings]))
 
 
 

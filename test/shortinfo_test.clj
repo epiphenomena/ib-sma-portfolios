@@ -1,6 +1,6 @@
-(ns ib-sma-portfolios.shortinfo-test
+(ns shortinfo-test
   (:require [clojure.test :refer :all]
-            [ib-sma-portfolios.shortinfo :as shortinfo]))
+            [shortinfo]))
 
 (deftest test-load-data-function
   (let [data-dir "/home/unveiled/work/P123/script/ib_data"
@@ -18,5 +18,3 @@
     (is (map? (first shortinfo-data)))
     (is (contains? (first shortinfo-data) :SYM))
     ))
-
-(def shortinfo-data (:data (shortinfo/load-data "/home/unveiled/work/P123/script/ib_data")))

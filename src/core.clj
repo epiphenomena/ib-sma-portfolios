@@ -1,11 +1,11 @@
-(ns ib-sma-portfolios.core
+(ns core
   (:require [clojure.data.json :as json]
             [clj-http.client :as http]
             [cheshire.core :as cheshire]
-            [ib-sma-portfolios.prices :as prices]
-            [ib-sma-portfolios.ranks :as ranks]
-            [ib-sma-portfolios.shortinfo :as shortinfo]
-            [ib-sma-portfolios.settings :as settings])
+            [prices]
+            [ranks]
+            [shortinfo]
+            [settings])
   (:import [java.io File]
            [java.util Date]))
 
@@ -53,7 +53,7 @@
                          (keys ranks-by-symbol))))))
 
 (defn -main [& args]
-  (let [data-dir (first (first args))]
+  (let [data-dir (if (map? (first args)) (:dir (first args)) (first args))]
     (println "IB SMA Portfolios running with data directory:" data-dir)
 
     ;; Load prices data

@@ -1,7 +1,7 @@
-(ns ib-sma-portfolios.shortinfo
+(ns shortinfo
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
-            [ib-sma-portfolios.utils :as utils]))
+            [utils]))
 
 (defn parse-shortinfo-data
   "Reads the shorting.tsv file and returns an array of maps with the data."

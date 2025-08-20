@@ -11,13 +11,13 @@ A Clojure project for managing SMA (Separately Managed Accounts) portfolios with
 To run the project with the default data directory:
 
 ```bash
-clj -M:run
+clj -X:run
 ```
 
 To run the project with a custom data directory:
 
 ```bash
-clj -X:run /path/to/data/directory
+clj -M -m core /path/to/data/directory
 ```
 
 To run tests:

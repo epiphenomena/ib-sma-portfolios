@@ -1,7 +1,7 @@
-(ns ib-sma-portfolios.settings
+(ns settings
   (:require [clojure.java.io :as io]
             [clojure.data.json :as json]
-            [ib-sma-portfolios.utils :as utils]))
+            [utils]))
 
 (defn read-json-file
   "Reads a JSON file and returns the parsed data."

@@ -1,6 +1,6 @@
-(ns ib-sma-portfolios.core-test
+(ns core-test
   (:require [clojure.test :refer :all]
-            [ib-sma-portfolios.core :as core]))
+            [core]))
 
 (deftest example-test
   (testing "Example test"

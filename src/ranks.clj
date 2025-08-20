@@ -1,7 +1,7 @@
-(ns ib-sma-portfolios.ranks
+(ns ranks
   (:require [clojure.java.io :as io]
             [clojure.string :as str]
-            [ib-sma-portfolios.utils :as utils]))
+            [utils]))
 
 (defn parse-ranks-data
   "Reads a ranks TSV file and returns an array of maps with the data."
