@@ -1,0 +1,31 @@
+{
+    "Omega": {
+        "file": "plain_ranks_longs.tsv",
+        "num_recs": 100,
+        "max_position_pct_gross_value": 0.02,
+        "min_position_pct_gross_value": 0.005,
+        "max_position_pct_daily_volume": 0.3
+    },
+    "Omicron": {
+        "file": "plain_ranks_ice_longs.tsv",
+        "num_recs": 100,
+        "max_position_pct_gross_value": 0.02,
+        "min_position_pct_gross_value": 0.005,
+        "max_position_pct_daily_volume": 0.3
+    },
+	"Alpha": {
+        "file": "plain_ranks_longs.tsv",
+        "num_recs": 100,
+        "max_position_pct_gross_value": 0.02,
+        "min_position_pct_gross_value": 0.005,
+        "max_position_pct_daily_volume": 0.3
+    },
+    "Sigma": {
+        "file": "plain_ranks_shorts.tsv",
+        "num_recs": 40,
+        "max_position_pct_gross_value": 0.04,
+        "min_position_pct_gross_value": 0.005,
+        "max_position_pct_daily_volume": 0.3
+    }
+}
+

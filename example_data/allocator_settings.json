@@ -1,0 +1,10 @@
+{
+    "ib_port_num": 7493,
+    "default_acct": "U123234",
+    "master_acct": "F92347234",
+    "max_open_order_pct_daily_volume": 0.1,
+    "max_close_order_pct_daily_volume": 0.1,
+    "min_open_order_pct_ggv": 0.0025,
+    "aligner": true
+}
+

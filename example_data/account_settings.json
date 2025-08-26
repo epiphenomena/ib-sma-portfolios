@@ -1,0 +1,36 @@
+{
+    "F92347234": {
+        "desc": "Master",
+        "ports": {},
+        "special": false
+    },
+    "U123234": {
+        "desc": "ABC",
+        "ports": {
+            "Omega": {
+                "goal_mult": 1
+            },
+            "Sigma": {
+                "goal_mult": 0.75
+            }
+        },
+        "special": true
+    },
+    "U123456": {
+        "desc": "DEF",
+        "ports": {},
+        "special": true
+    },
+    "U789123": {
+        "desc": "XYZ",
+        "ports": {
+            "Alpha": {
+                "goal_mult": 1.15
+            },
+            "Sigma": {
+                "goal_mult": 1
+            }
+        },
+        "special": true
+    }
+}
